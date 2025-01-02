@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad Unlock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #step-content {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        #timer {
+            font-size: 24px;
+            color: #ff0000;
+        }
+        .hidden {
+            display: none;
+        }
+        .unlocked {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Complete Steps to Unlock the Link</h1>
+
+    <div id="step-content">
+        <p id="instruction">Click the button to view the ad. Wait for <span id="timer">10</span> seconds after clicking.</p>
+        <button id="ad-button">Go to Ad</button>
+        <a id="next-step" class="hidden" href="#">Next Step</a>
+        <p id="unlocked-message" class="hidden unlocked">Link Unlocked! <a href="Direct Url
+https://bigincomplete.com/bd1x0wku?key=cdad32bb57ccb6c5151dd5d30a8352f2">Access Here</a></p>
+    </div>
+
+    <script>
+        const steps = 3;
+        let currentStep = 1;
+        let countdown;
+
+        const timerElement = document.getElementById('timer');
+        const instructionElement = document.getElementById('instruction');
+        const adButton = document.getElementById('ad-button');
+        const nextStepLink = document.getElementById('next-step');
+        const unlockedMessage = document.getElementById('unlocked-message');
+
+        function startTimer(duration, callback) {
+            let timeRemaining = duration;
+            timerElement.textContent = timeRemaining;
+
+            countdown = setInterval(() => {
+                timeRemaining--;
+                timerElement.textContent = timeRemaining;
+
+                if (timeRemaining <= 0) {
+                    clearInterval(countdown);
+                    callback();
+                }
+            }, 1000);
+        }
+
+        function handleAdClick() {
+            adButton.classList.add('hidden');
+            instructionElement.textContent = `Wait for 10 seconds...`;
+
+            startTimer(10, () => {
+                if (currentStep < steps) {
+                    nextStepLink.classList.remove('hidden');
+                } else {
+                    unlockedMessage.classList.remove('hidden');
+                    instructionElement.classList.add('hidden');
+                }
+            });
+        }
+
+        function goToNextStep() {
+            currentStep++;
+            nextStepLink.classList.add('hidden');
+            adButton.classList.remove('hidden');
+            instructionElement.textContent = `Step ${currentStep}: Click the button to view the ad. Wait for 10 seconds after clicking.`;
+        }
+
+        adButton.addEventListener('click', () => {
+            window.open('Direct Url
+https://bigincomplete.com/bd1x0wku?key=cdad32bb57ccb6c5151dd5d30a8352f2', '_blank'); // Replace with your Adsterra ad link
+            handleAdClick();
+        });
+
+        nextStepLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            goToNextStep();
+        });
+    </script>
+</body>
+</html>
