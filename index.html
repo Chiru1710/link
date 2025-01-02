@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad Click Flow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .hidden {
+            display: none;
+        }
+        .step {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Unlock Your Content</h1>
+    <div id="step1" class="step">
+        <h2>Step 1</h2>
+        <p>Please wait for 15 seconds...</p>
+        <div id="ad-placeholder" style="margin: 20px; border: 1px solid #ccc; padding: 10px;">
+            <p>Ad goes here</p>
+            <a id="ad1" class="hidden" href="#" data-url="https://bigincomplete.com/bd1x0wku?key=cdad32bb57ccb6c5151dd5d30a8352f2">Click Here for Ad</a>
+        </div>
+    </div>
+
+    <div id="step2" class="step hidden">
+        <h2>Step 2</h2>
+        <p>Please wait for 15 seconds...</p>
+        <div id="ad-placeholder" style="margin: 20px; border: 1px solid #ccc; padding: 10px;">
+            <p>Ad goes here</p>
+            <a id="ad2" class="hidden" href="#" data-url="https://bigincomplete.com/bd1x0wku?key=cdad32bb57ccb6c5151dd5d30a8352f2">Click Here for Ad</a>
+        </div>
+    </div>
+
+    <div id="step3" class="step hidden">
+        <h2>Step 3</h2>
+        <p>Please wait for 15 seconds...</p>
+        <div id="ad-placeholder" style="margin: 20px; border: 1px solid #ccc; padding: 10px;">
+            <p>Ad goes here</p>
+            <a id="ad3" class="hidden" href="#" data-url="https://bigincomplete.com/bd1x0wku?key=cdad32bb57ccb6c5151dd5d30a8352f2">Click Here for Ad</a>
+        </div>
+    </div>
+
+    <div id="final" class="step hidden">
+        <h2>Content Unlocked!</h2>
+        <p>Your content is now available.</p>
+        <a href="https://www.yourfinaldestination.com" target="_blank">Click Here</a>
+    </div>
+
+    <script>
+        let currentStep = 1;
+
+        function showStep(step) {
+            document.querySelector(`#step${step}`).classList.remove('hidden');
+            setTimeout(() => {
+                document.querySelector(`#ad${step}`).classList.remove('hidden');
+            }, 15000); // Show ad button after
